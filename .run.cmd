@@ -15,6 +15,21 @@ goto :eof
 if NOT [%1]==[] ( git add %1 -f)
 goto :eof
 
+:count_vids
+call _\count-vids.cmd
+goto :eof
+
+:set_count
+@setlocal enableextensions enabledelayedexpansion
+FOR /F "usebackq delims==" %%i IN (`_\count-vids`) DO (
+    @echo %%i
+    set count=%%i
+) & set current_count=!count!
+
+echo !current_count!
+ENDLOCAL
+goto :eof
+
 :list_ids
 FOR /F "usebackq delims==" %%i IN (`_\list-playlist.cmd %playlist_url%`) DO ( @echo %%i )
 
