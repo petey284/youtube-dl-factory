@@ -15,7 +15,7 @@ if [%1]==[list] ( call :list_ids
   call :download
 ) else if [%1]==[download] (
   echo Downloading...
-  youtube-dl --yes-playlist --playlist-start 21 --playlist-end 30 %playlist_url%
+  youtube-dl --yes-playlist --playlist-start 41 --playlist-end 49 %playlist_url%
 )
 
 exit /b
